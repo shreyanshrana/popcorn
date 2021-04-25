@@ -25,6 +25,7 @@ const List = (props) => {
                 ?
                 (
                 <React.Fragment>
+                    <h1>Trending this week</h1>
                     <ListByTrending genreList={props.genreList}/>
                     <ListByCategory genreList={props.genreList}/>
                 </React.Fragment>
