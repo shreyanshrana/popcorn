@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Loading from "./components/Loading/Loading";
 import List from "./pages/List/List";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
   },[])
   return (
     <div className="App">
-      {/* <Loading/> */}
       <List genreList={genre}/>
     </div>
   );
