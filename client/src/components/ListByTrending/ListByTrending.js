@@ -22,6 +22,7 @@ const ListByTrending = (props) => {
                         genre={props.genreList[movie.genre_ids[0]] + "/" + props.genreList[movie.genre_ids[1]]}
                         key={"h-"+movie.title}
                         cardType="horizontal"
+                        id={movie.id}
                         />
                 )
                 return null;
@@ -32,9 +33,22 @@ const ListByTrending = (props) => {
         // setLoading(false);
     }, [props.genreList]);
 
+
+    const Arrow = ({ text, className }) => {
+        return (
+        <div
+        className={className}
+        >{text}</div>
+    );
+    };
+
+    const ArrowLeft = Arrow({ text: <div className="text-3xl cursor-pointer"><ion-icon name="caret-back-circle-outline"></ion-icon></div>, className: 'arrow-prev' });
+    const ArrowRight = Arrow({ text:  <div className="text-3xl cursor-pointer"><ion-icon name="caret-forward-circle-outline"></ion-icon></div>, className: 'arrow-next' });
+
+    
     return (
         <React.Fragment>
-            <ScrollMenu data={movieCardList} dragging={false}  wheel={true} wrapperStyle={{}} hideSingleArrow={true} scrollBy={2}/>
+            <ScrollMenu data={movieCardList} dragging={false} translate="100px" arrowLeft={ArrowLeft} arrowRight={ArrowRight} wheel={false} wrapperStyle={{}} hideSingleArrow={true} scrollBy={2}/>
         </React.Fragment>
     )
 }
