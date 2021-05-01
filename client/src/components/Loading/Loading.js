@@ -3,7 +3,7 @@ import "./Loading.css";
 
 const Loading = () => {
     return (
-        <div className="w-screen h-screen body">
+        <div className="body">
             <div class="loader">
                 <div class="loader__filmstrip">
                 </div>

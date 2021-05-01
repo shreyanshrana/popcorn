@@ -14,7 +14,7 @@ const ListByCategory = (props) => {
             let id;
             console.log(props.genreList)
             for(let genre in props.genreList){
-                if(props.genreList[genre] === "Action")
+                if(props.genreList[genre] === "Adventure")
                     id = genre;
             }
             console.log(id)
@@ -35,6 +35,7 @@ const ListByCategory = (props) => {
                         genre={props.genreList[movie.genre_ids[0]] + "/" + props.genreList[movie.genre_ids[1]]}
                         key={movie.title}
                         cardType="vertical"
+                        id={movie.id}
                         />
                 )
                 return null;
@@ -64,6 +65,7 @@ const ListByCategory = (props) => {
                     genre={props.genreList[movie.genre_ids[0]] + "/" + props.genreList[movie.genre_ids[1]]}
                     key={"v"+movie.title}
                     cardType="vertical"
+                    id={movie.id}
                     />
             )
             return null;
@@ -102,6 +104,17 @@ const ListByCategory = (props) => {
         return genreButtons;
     }
 
+    const Arrow = ({ text, className }) => {
+        return (
+        <div
+        className={className}
+        >{text}</div>
+    );
+    };
+
+    const ArrowLeft = Arrow({ text: <div className="text-3xl cursor-pointer"><ion-icon name="caret-back-circle-outline"></ion-icon></div>, className: 'arrow-prev' });
+    const ArrowRight = Arrow({ text:  <div className="text-3xl cursor-pointer"><ion-icon name="caret-forward-circle-outline"></ion-icon></div>, className: 'arrow-next' });
+
     return (
         <div>
             <div className="px-16">
@@ -117,7 +130,7 @@ const ListByCategory = (props) => {
                     :
                     (
                         <React.Fragment>
-                            <ScrollMenu data={movieCardList} dragging={false}  wheel={true} wrapperStyle={{}} hideSingleArrow={true} scrollBy={2}/>
+                            <ScrollMenu data={movieCardList} dragging={false} arrowLeft = {ArrowLeft} arrowRight={ArrowRight}  wheel={false} wrapperStyle={{}} hideSingleArrow={true} scrollBy={4}/>
                         </React.Fragment>
                     )
                 }
