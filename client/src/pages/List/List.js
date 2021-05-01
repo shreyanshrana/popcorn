@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./List.css";
 import ListByCategory from '../../components/ListByCategory/ListByCategory';
 import ListByTrending from '../../components/ListByTrending/ListByTrending';
+import SideBar from '../../components/SideBar/SideBar';
 
 
 const List = (props) => {
@@ -9,7 +10,7 @@ const List = (props) => {
     const [trending, setTrending] = useState([]);
 
     useEffect(()=>{
-        document.getElementById("movieList").style.width = window.screen.width - 288 + 'px';
+        // document.getElementById("movieList").style.width = window.screen.width - 240 + 'px';
         async function fetchData(){
             const API_URL = "https://api.themoviedb.org/3/trending/movie/week?api_key=6973dcfea19d8ef259f70d85b99207b4";
             const res = await fetch(API_URL);
@@ -26,8 +27,8 @@ const List = (props) => {
                 ?
                 (
                 <React.Fragment>
-                    <div className="w-72 float-left inline-block">
-                        <h1>hello</h1>
+                    <div className="w-60 float-left inline-block">
+                        <SideBar/>
                     </div>
                     <div className="inline-block py-3" id="movieList">
                         <h1 className="pt-5 px-2 text-3xl font-bold">Trending</h1>
