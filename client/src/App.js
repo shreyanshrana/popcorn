@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SideBar from "./components/SideBar/SideBar";
 import List from "./pages/List/List";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <List genreList={genre}/>
+      <SideBar/>
     </div>
   );
 }
